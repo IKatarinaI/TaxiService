@@ -1,0 +1,136 @@
+﻿@model TaxiSluzba.Models.Vozac
+@{
+    ViewBag.Title = "Vozac";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div class="w3-container w3-light-grey w3-cell w3-mobile">
+<h2>Vozac: @Model.username</h2>
+<h4>Voznja pristigla od dispecera</h4>
+<form action="/Home/PocniSaVoznjom" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+    @{ foreach (TaxiSluzba.Models.Voznja voz in TaxiSluzba.Models.Baza.vozaci[Model.username].voznje)
+        {
+            if (voz.statusVoznje == TaxiSluzba.Models.Enumi.StatusVoznje.OBRADJENA || voz.statusVoznje == TaxiSluzba.Models.Enumi.StatusVoznje.FORMIRANA)
+            {
+                <table border="1">
+                    <tr>
+                        <td><b>Musterija</b></td>
+                        <td><b>Dispecer</b></td>
+                        <td><b>Datum i vreme</b></td>
+                        <td><b>Adresa</b></td>
+                    </tr>
+                    @{
+                        foreach (TaxiSluzba.Models.Voznja v in TaxiSluzba.Models.Baza.vozaci[Model.username].voznje)
+                        {
+                            if (v.statusVoznje == TaxiSluzba.Models.Enumi.StatusVoznje.OBRADJENA || v.statusVoznje == TaxiSluzba.Models.Enumi.StatusVoznje.FORMIRANA)
+                            {
+                                <tr>
+                                    <td align="center">@v.musterija.username</td>
+                                    <td align="center">@v.dispecer.username</td>
+                                    <td>@v.datum.ToString()</td>
+                                    <td>@v.lokacija.Adress.Ulica @v.lokacija.Adress.Broj, @v.lokacija.Adress.Grad <input type="hidden" name="datumVoznje" value="@v.datum.ToString()"><input type="hidden" name="vozac" value="@Model.username"></td>
+                                </tr>
+                            }
+                        }
+                    }
+                </table>
+                <input type="submit" value="Odradi voznju">
+            }
+        }
+    }
+</form><hr>
+</div>
+
+<div class="w3-container w3-light-grey w3-cell w3-mobile">
+<h4>Lokacija:</h4>
+<form action="/Home/LokacijaTaksiste" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+    <table>
+        <tr>
+            <td>Ulica:</td>
+            <td><input type="text" name="ulica"></td>
+        </tr>
+        <tr>
+            <td>Broj:</td>
+            <td><input type="text" name="broj"></td>
+        </tr>
+        <tr>
+            <td>Grad:</td>
+            <td><input type="text" name="grad"></td>
+        </tr>
+        <tr>
+            <td>Postanski broj:</td>
+            <td><input type="text" name="poBroj"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="Potvrdi" onclick="alert('Lokacija uspesno promenjena!')"></td>
+        </tr>
+        @{
+            if (Model.lokacija.Adress.Grad != "NULL" && Model.lokacija.Adress.Ulica != "NULL" && Model.lokacija.Adress.Broj != "NULL" && Model.lokacija.Adress.PostanskiBroj != "NULL")
+            {
+                <tr>
+                    <td>Prethodna lokacija:</td>
+                    <td><b>@Model.lokacija.Adress.Ulica @Model.lokacija.Adress.Broj, @Model.lokacija.Adress.Grad</b></td>
+                </tr>
+            }
+        }
+    </table>
+    <input type="hidden" name="vozac" value="@Model.username">
+</form><hr>
+    </div>
+
+<div class="w3-container w3-light-grey w3-cell w3-mobile">
+<h2>Preuzimanje voznje</h2>
+<form action="/Home/PreuzimanjeVoznje" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+    <select name="voznja">
+        @{
+            foreach (TaxiSluzba.Models.Voznja v in TaxiSluzba.Models.Baza.sveVoznje.Values)
+            {
+                if (v.tipAuta.ToString() == Model.auto.tipAuta.ToString())
+                {
+                    if(v.statusVoznje == TaxiSluzba.Models.Enumi.StatusVoznje.KREIRANA_NA_CEKANJU)
+                    {
+                        <option value="@v.datum.ToString()">@v.lokacija.Adress.Ulica @v.lokacija.Adress.Broj, @v.lokacija.Adress.Grad, @v.lokacija.Adress.PostanskiBroj - @v.tipAuta.ToString() </option>
+                    }
+                }
+            }
+        }
+    </select>
+    <input type="submit" value="Preuzmi">
+    <input type="hidden" name="vozac" value="@Model.username">
+</form><hr>
+</div>
+
+<div class="w3-container w3-light-grey w3-cell w3-mobile">
+<h2>Sve voznje kojima ste/bili angazovani</h2>
+<table border="1">
+    <tr>
+        <td><b>Musterija:</b></td>
+        <td><b>Datum i vreme:</b></td>
+        <td><b>Dispecer:</b></td>
+        <td><b>Status voznje:</b></td>
+    </tr>
+    @foreach (TaxiSluzba.Models.Voznja v in TaxiSluzba.Models.Baza.vozaci[Model.username].voznje)
+    {
+        <tr>
+            <td align="center">@v.musterija.username</td>
+            <td>@v.datum.ToString()</td>
+            <td align="center">@v.dispecer.username</td>
+            <td>@v.statusVoznje.ToString()</td>
+            <td><form action="/Home/DetaljiVoznje" method="post"><input type="submit" value="Detalji"><input type="hidden" name="vozac" value="@v.vozac.username"><input type="hidden" name="datumVoznje" value="@v.datum.ToString()"></form></td>
+        </tr>
+    }
+</table>
+    </div>
+
+    <div class="w3-container w3-light-grey w3-cell">
+        <form action="/Home/Odjava">
+            <input type="submit" value="Odjavi se">
+        </form>
+    </div>
+</body>

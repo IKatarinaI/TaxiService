@@ -1,0 +1,18 @@
+﻿@model TaxiSluzba.Models.Greska
+@{
+    ViewBag.Title = "Greska";
+}
+
+<html>
+<head>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</head>
+    <body style="background-image='C:\Users\Katarina\Desktop\TaxiSluzba\TaxiSluzba\App_Data\images.png'">
+            <h2>@Model.tekst</h2>
+            <button onclick="goBack()">Nazad</button>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+﻿@model TaxiSluzba.Models.Voznja
+@{
+    ViewBag.Title = "DetaljiVoznje";
+}
+
+<html>
+    <head>
+        <script> 
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <style>
+            .centered {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body >
+        <div class="centered">
+            <h2>Detalji voznje</h2>
+            <table>
+                <tr>
+                    <td><b>Musterija:</b></td>
+                    <td>@Model.musterija.username</td>
+                </tr>
+                <tr>
+                    <td><b>Datum i vreme:</b></td>
+                    <td>@Model.datum.ToString()</td>
+                </tr>
+                <tr>
+                    <td><b>Vozac:</b></td>
+                    <td>@Model.vozac.username</td>
+                </tr>
+                <tr>
+                    <td><b>Dispecer:</b></td>
+                    <td>@Model.dispecer.username</td>
+                </tr>
+                <tr>
+                    <td><b>Od:</b></td>
+                    <td>@Model.lokacija.Adress.Ulica @Model.lokacija.Adress.Broj, @Model.lokacija.Adress.Grad</td>
+                </tr>
+                <tr>
+                    <td><b>Do:</b></td>
+                    <td>@Model.odrediste.Adress.Ulica @Model.odrediste.Adress.Broj, @Model.odrediste.Adress.Grad</td>
+                </tr>
+                <tr>
+                    <td><b>Komentar:</b></td>
+                    <td>@Model.komentar.opis</td>
+                </tr>
+                <tr>
+                    <td><b>Ocena:</b></td>
+                    <td>@Model.komentar.ocenaVoznje.ToString()</td>
+                </tr>
+                <tr>
+                    <td><b>Status voznje:</b></td>
+                    <td>@Model.statusVoznje.ToString()</td>
+                </tr>
+                <tr>
+                    <td><b>Iznos:</b></td>
+                    <td>@Model.iznos</td>
+                </tr>
+            </table>
+            <p class="w3-center">
+                <button onclick="goBack()" class="w3-button w3-section w3-blue w3-ripple">Nazad</button>
+            </p>
+        </div>
+    </body>
+</html>

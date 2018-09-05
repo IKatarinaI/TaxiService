@@ -1,0 +1,22 @@
+﻿@model TaxiSluzba.Models.Voznja
+@{
+    ViewBag.Title = "KomentarVozac";
+}
+
+<h2>Komentar</h2>
+<div class="w3-container w3-blue w3-cell w3-mobile">
+<form action="/Home/KomentarVozac" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+    <div class="w3-row w3-section">
+        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+        <div class="w3-rest">
+            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="comment" placeholder="Komentar"> <span class="text-danger field-validation-error" data-valmsg-for="comment" data-valmsg-replace="true">
+        </div>
+    </div>
+        <p class="w3-center">
+            <button class="w3-button w3-section w3-blue w3-ripple">Pošalji</button>
+        </p>
+    <input type="hidden" name="datumVoznje" value="@Model.datum">
+    <input type="hidden" name="userKorisnika" value="@Model.musterija.username">
+</form>
+    </div>
+

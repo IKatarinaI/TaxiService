@@ -1,0 +1,123 @@
+﻿<html>
+    <head>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .split {
+                height: 100%;
+                width: 50%;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                overflow-x: hidden;
+                padding-top: 20px;
+            }
+
+            .left {
+                left: 0;
+            }
+
+            .right {
+                right: 0;
+            }
+
+            .centered {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="split right">
+            <div class="centered">
+                <h1>Registracija</h1>
+                <form action="/Home/Registracija" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="user" placeholder="Korisničko ime"> <span class="text-danger field-validation-error" data-valmsg-for="user" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="password" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="pass" placeholder="Šifra"> <span class="text-danger field-validation-error" data-valmsg-for="pass" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="ime" placeholder="Ime"> <span class="text-danger field-validation-error" data-valmsg-for="ime" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="prezime" placeholder="Prezime"> <span class="text-danger field-validation-error" data-valmsg-for="prezime" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <select name="pol" class="w3-input w3-border">
+                                <option value="MUSKI">Muski</option>
+                                <option value="ZENSKI">Zenski</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="jmbg" placeholder="JMBG"> <span class="text-danger field-validation-error" data-valmsg-for="jmbg" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="telefon" placeholder="Telefon"> <span class="text-danger field-validation-error" data-valmsg-for="telefon" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="email" placeholder="Email"> <span class="text-danger field-validation-error" data-valmsg-for="email" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <p class="w3-center">
+                        <button class="w3-button w3-section w3-blue w3-ripple">Pošalji</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div class="split left">
+            <div class="centered">
+                <h1>Logovanje</h1>
+                <form action="/Home/Logovanje" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="user" placeholder="Korisničko ime"> <span class="text-danger field-validation-error" data-valmsg-for="user" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="password" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="pass" placeholder="Šifra"> <span class="text-danger field-validation-error" data-valmsg-for="pass" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <p class="w3-center">
+                        <button class="w3-button w3-section w3-blue w3-ripple">Uloguj se</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+

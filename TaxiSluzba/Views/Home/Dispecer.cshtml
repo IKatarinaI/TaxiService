@@ -1,0 +1,231 @@
+﻿<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="w3-container w3-light-grey w3-cell">
+        <div>
+            <form action="/Home/KreirajVozaca" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="user" placeholder="Korisničko ime"> <span class="text-danger field-validation-error" data-valmsg-for="user" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <input type="password" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="pass" placeholder="Šifra"> <span class="text-danger field-validation-error" data-valmsg-for="pass" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="ime" placeholder="Ime"> <span class="text-danger field-validation-error" data-valmsg-for="ime" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="prezime" placeholder="Prezime"> <span class="text-danger field-validation-error" data-valmsg-for="prezime" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <select name="pol" class="w3-input w3-border">
+                            <option value="MUSKI">Muski</option>
+                            <option value="ZENSKI">Zenski</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="jmbg" placeholder="JMBG"> <span class="text-danger field-validation-error" data-valmsg-for="jmbg" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-phone"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="telefon" placeholder="Telefon"> <span class="text-danger field-validation-error" data-valmsg-for="telefon" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-envelope"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="email" placeholder="Email"> <span class="text-danger field-validation-error" data-valmsg-for="email" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="godisteAuto" placeholder="Godište automobila"> <span class="text-danger field-validation-error" data-valmsg-for="godisteAuto" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="regAuto" placeholder="Registracija"> <span class="text-danger field-validation-error" data-valmsg-for="regAuto" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="brAuto" placeholder="Broj automobila"> <span class="text-danger field-validation-error" data-valmsg-for="brAuto" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                    <div class="w3-rest">
+                        <select name="tiAuto" class="w3-input w3-border">
+                            <option value="MUSKI">Muski</option>
+                            <option value="ZENSKI">Zenski</option>
+                        </select>
+                    </div>
+                </div>
+                <p class="w3-center">
+                    <button class="w3-button w3-section w3-blue w3-ripple">Pošalji</button>
+                </p>
+            </form>
+            </div>
+        </div>
+
+    <div class="w3-container w3-light-grey w3-cell">
+        <div>
+            <form action="/Home/KreirajVoznju" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="ulica" placeholder="Ulica"> <span class="text-danger field-validation-error" data-valmsg-for="ulica" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="broj" placeholder="Broj"> <span class="text-danger field-validation-error" data-valmsg-for="broj" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="grad" placeholder="Grad"> <span class="text-danger field-validation-error" data-valmsg-for="grad" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+                    <div class="w3-rest">
+                        <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="poBroj" placeholder="Pozivni broj"> <span class="text-danger field-validation-error" data-valmsg-for="poBroj" data-valmsg-replace="true">
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+                    <div class="w3-rest">
+                        <select name="tipPrevoza" class="w3-input w3-border">
+                            <option value="PUTNICKI_AUTOMOBIL">Putnički</option>
+                            <option value="KOMBI">Kombi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+                    <div class="w3-rest">
+                        <select name="izabraniVozac" class="w3-input w3-border">
+                            @{
+                                foreach (TaxiSluzba.Models.Vozac v in TaxiSluzba.Models.Baza.vozaci.Values)
+                                {
+                                    if (v.slobodan == true)
+                                    {
+                                        <option value="@v.username">@v.username, @v.auto.tipAuta.ToString()</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <p class="w3-center">
+                    <button class="w3-button w3-section w3-blue w3-ripple">Pošalji</button>
+                </p>
+            </form>
+            </div>
+        </div>
+
+    <div class="w3-container w3-light-grey w3-cell">
+        <form action="/Home/Odjava">
+            <input type="submit" value="Odjavi se">
+        </form>
+        </div>
+
+        <div class="w3-container w3-light-grey w3-cell">
+            <table border="1">
+                <tr>
+                    <td><b>Datum i vreme:</b></td>
+                    <td><b>Musterija:</b></td>
+                    <td><b>Dispecer:</b></td>
+                    <td><b>Vozac:</b></td>
+                    <td><b>Status voznje:</b></td>
+                </tr>
+                @foreach (TaxiSluzba.Models.Voznja v in TaxiSluzba.Models.Baza.sveVoznje.Values)
+            {
+                    <tr>
+                        <td>@v.datum.ToString()</td>
+                        <td align="center">@v.musterija.username</td>
+                        <td align="center">@v.dispecer.username</td>
+                        <td align="center">@v.vozac.username</td>
+                        <td>@v.statusVoznje.ToString()</td>
+                        <td><form action="/Home/DetaljiVoznje" method="post"><input type="submit" value="Detalji"><input type="hidden" name="vozac" value="@v.vozac.username"><input type="hidden" name="datumVoznje" value="@v.datum.ToString()"></form></td>
+                    </tr>
+                }
+        </div>
+
+
+
+        <div class="w3-container w3-light-grey w3-cell">
+            <div>
+                <h1> Dodela voznje </h1>
+                <h4> Spisak voznji na cekanju</h4>
+                <form action="/Home/DodeliVozacaVoznji" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                    <select name="voznja">
+                        @{
+                            foreach (TaxiSluzba.Models.Voznja v in TaxiSluzba.Models.Baza.sveVoznje.Values)
+                            {
+                                if (v.statusVoznje == TaxiSluzba.Models.Enumi.StatusVoznje.FORMIRANA || v.statusVoznje == TaxiSluzba.Models.Enumi.StatusVoznje.KREIRANA_NA_CEKANJU)
+                                {
+                                    <option value="@v.datum.ToString()">@v.musterija.username - @v.lokacija.Adress.Ulica @v.lokacija.Adress.Broj, @v.lokacija.Adress.Grad, @v.lokacija.Adress.PostanskiBroj - @v.tipAuta.ToString() </option>
+                                }
+                            }
+                        }
+                    </select>
+
+                    <h4> Spisak slobodnih vozaca</h4>
+                    <select name="vozac">
+                        @{
+                            foreach (TaxiSluzba.Models.Vozac v in TaxiSluzba.Models.Baza.vozaci.Values)
+                            {
+                                if (v.slobodan == true)
+                                {
+                                    <option value="@v.username">@v.username - @v.auto.tipAuta.ToString() </option>
+                                }
+                            }
+                        }
+                    </select>
+                    <p class="w3-center">
+                        <button class="w3-button w3-section w3-blue w3-ripple">Pošalji</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,155 @@
+﻿@model TaxiSluzba.Models.Korisnik
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" >
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+</head>
+
+    <body style="background-color=w3-light-grey">
+            <div class="w3-container w3-light-grey w3-cell">
+                <h3>Poruči vožnju!</h3>
+                <form action="/Home/PoruciVoznju" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="korisnickoIme" placeholder="Korisničko ime"> <span class="text-danger field-validation-error" data-valmsg-for="korisnickoIme" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="ulica" placeholder="Ulica"> <span class="text-danger field-validation-error" data-valmsg-for="ulica" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="broj" placeholder="Broj"> <span class="text-danger field-validation-error" data-valmsg-for="broj" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="grad" placeholder="Grad"> <span class="text-danger field-validation-error" data-valmsg-for="grad" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="poBroj" placeholder="Postanski broj"> <span class="text-danger field-validation-error" data-valmsg-for="poBroj" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-pencil"></i></div>
+                        <div class="w3-rest">
+                            <select name="tipPrevoza" class="w3-input w3-border">
+                                <option value="PUTNICKI_AUTOMOBIL">Putnički</option>
+                                <option value="KOMBI">Kombi</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="w3-center">
+                        <button class="w3-button w3-section w3-blue w3-ripple">Pošalji</button>
+                    </p>
+                </form>
+            </div>
+
+            <div class="w3-container w3-blue w3-cell w3-cell">
+                <table>
+                    <tr>
+                        <td>Korisnicko ime:</td>
+                        <td>@Model.username</td>
+                    </tr>
+                    <tr>
+                        <td>Lozinka: </td>
+                        <td>@Model.password</td>
+                    </tr>
+                    <tr>
+                        <td>Ime: </td>
+                        <td>@Model.ime</td>
+                    </tr>
+                    <tr>
+                        <td>Prezime: </td>
+                        <td>@Model.prezime</td>
+                    </tr>
+                    <tr>
+                        <td>Pol: </td>
+                        <td>@Model.pol.ToString()</td>
+                    </tr>
+                    <tr>
+                        <td>JMBG: </td>
+                        <td>@Model.jmbg</td>
+                    </tr>
+                    <tr>
+                        <td>Kontakt telefon: </td>
+                        <td>@Model.telefon</td>
+                    </tr>
+                    <tr>
+                        <td>Email: </td>
+                        <td>@Model.email</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="w3-container w3-light-grey w3-cell">
+                <form action="/Home/IzmeniPodatke" method="post" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" readonly value=@Model.username class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="user"> <span class="text-danger field-validation-error" data-valmsg-for="user" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="password" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="pass" value="@Model.password"> <span class="text-danger field-validation-error" data-valmsg-for="pass" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <select name="pol" value=@Model.pol class="w3-input w3-border">
+                                <option value="MUSKI">Muski</option>
+                                <option value="ZENSKI">Zenski</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="jmbg" value="@Model.jmbg"> <span class="text-danger field-validation-error" data-valmsg-for="jmbg" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="telefon" value="@Model.telefon"> <span class="text-danger field-validation-error" data-valmsg-for="telefon" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <div class="w3-row w3-section">
+                        <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                            <input type="text" class="w3-input w3-border" data-val="true" data-val-length="Minimum 1 karakter" data-val-length-max="20" data-val-length-min="1" data-val-required="*" name="email" value="@Model.email"> <span class="text-danger field-validation-error" data-valmsg-for="email" data-valmsg-replace="true">
+                        </div>
+                    </div>
+                    <p class="w3-center">
+                        <button class="w3-button w3-section w3-blue w3-ripple">Pošalji</button>
+                    </p>
+                </form>
+            </div>
+
+            <div class="w3-container w3-light-grey w3-cell">
+                <form action="/Home/Odjava">
+                    <input type="submit" value="Odjavi se">
+                </form>
+            </div>       
+        
+    </body>
+</html>
+
